@@ -1,9 +1,9 @@
 from datetime import datetime as dt, timezone as tz
-from fastapi import FastAPI
+from fastapi import APIRouter
 
-app = FastAPI()
+router = APIRouter()
 
 
-@app.get("/")
+@router.get("/")
 async def root():
     return {"message": "shugar!", "current_time": dt.now(tz=tz.utc)}

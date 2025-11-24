@@ -1,9 +1,8 @@
-from api.catch import app
+from api.catch import router as catch_router
+from fastapi import FastAPI
 
+app = FastAPI()
 
-def main():
-    print("Hello from devopx!")
+app.include_router(catch_router)
 
-
-if __name__ == "__main__":
-    app.run()
+# app.include_router(app)

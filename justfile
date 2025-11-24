@@ -32,7 +32,7 @@ fmt-check:
 	uv run ruff format src/ --check
 
 # Lint code with ruff
-lint:
+lint: fmt
 	uv run ruff check src/ --fix
 
 # Check linting without fixing
@@ -56,11 +56,11 @@ type-check:
 	uv run pyright src/
 
 # Pre-commit checks
-pre-commit:
+pre-commit: lint
 	uv run pre-commit run --all-files
 
 # Commit with commitizen
-commit:
+commit: pre-commit
 	uv run cz commit
 
 # Bump version

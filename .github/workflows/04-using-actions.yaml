@@ -1,0 +1,16 @@
+name: 04 - Using Actions
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout code
+            uses: actions/checkout@v6
+        -   name: Run a one-line script
+            run: echo Hello, world!

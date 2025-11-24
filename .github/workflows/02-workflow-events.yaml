@@ -2,11 +2,12 @@ name: 02 - Workflow Events
 
 on:
     workflow_dispatch:
-    push:
-        branches: [main, develop]
+    # push:
+    #     branches: [main, develop]
     pull_request:
-    schedule:
-    -   cron: '*/10 * * * *'
+        branches: [main, develop]
+    # schedule:
+    # -   cron: '*/10 * * * *'
 
 jobs:
     sample-ok:

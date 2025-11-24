@@ -1,11 +1,11 @@
-name: 01 - building Blocks
+name: 01 - Building Blocks
 
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   sample-job:
@@ -13,13 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: Run script
-      run: echo "Bash CICD my project"
+      run: |
+        echo "Bash CICD my project"
+        exit 0
   sample-gone:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
-    - name: Run script
+    - name: Failed - Run script
       run: |
         echo "Want to say goodbye"
         echo "Bye"
-        exit 0
+        exit 1

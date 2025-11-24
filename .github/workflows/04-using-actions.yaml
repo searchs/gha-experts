@@ -12,5 +12,15 @@ jobs:
         steps:
         -   name: Checkout code
             uses: actions/checkout@v6
-        -   name: Printing Folders
-            run: echo $(ls -lah)
+        -   name: Setup Node
+            run: echo "Setting up Node"
+        -   name: Install Dependencies
+            run: |
+                echo "Installing Dependencies"
+                cd transit
+                npm install
+        -   name: Run Tests
+            run: |
+                echo "Running tests..."
+                cd transit
+                npm test

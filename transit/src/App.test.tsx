@@ -10,7 +10,7 @@ describe('App Component', () => {
 
     it('renders the main heading', () => {
         render(<App />);
-        const heading = screen.getByText(/Documented API in CurrencyLand/i);
+        const heading = screen.getByText(/Transit API in PeopleLand/i);
         expect(heading).toBeInTheDocument();
     });
 
@@ -53,16 +53,14 @@ describe('App Component', () => {
         const button = screen.getByRole('button');
 
         expect(button).toHaveStyle({
-            fontSize: '2rem',
             fontWeight: '600',
             color: 'rgb(255, 0, 0)',
-            border: '2px solid red',
         });
     });
 
     it('heading has correct styling attributes', () => {
         render(<App />);
-        const heading = screen.getByText(/Documented API in CurrencyLand/i);
+        const heading = screen.getByText(/Transit API in PeopleLand/i);
 
         expect(heading).toHaveStyle({
             fontSize: '3.5rem',

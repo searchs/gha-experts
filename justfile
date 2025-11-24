@@ -31,8 +31,20 @@ fmt:
 fmt-check:
 	uv run ruff format src/ --check
 
+# Format YAML files
+fmt-yaml:
+	find . -type f \( -name "*.yaml" -o -name "*.yml" \) ! -path "./.venv/*" ! -path "./venv/*" ! -path "./.git/*" ! -path "*/node_modules/*" -print0 | xargs -0 uv run yamlfix
+
+# Lint YAML files
+lint-yaml: fmt-yaml
+	find . -type f \( -name "*.yaml" -o -name "*.yml" \) ! -path "./.venv/*" ! -path "./venv/*" ! -path "./.git/*" ! -path "*/node_modules/*" -print0 | xargs -0 uv run yamllint
+
+# Check YAML linting without fixing
+lint-yaml-check:
+	find . -type f \( -name "*.yaml" -o -name "*.yml" \) ! -path "./.venv/*" ! -path "./venv/*" ! -path "./.git/*" ! -path "*/node_modules/*" -print0 | xargs -0 uv run yamllint
+
 # Lint code with ruff
-lint: fmt
+lint: fmt lint-yaml
 	uv run ruff check src/ --fix
 
 # Check linting without fixing
@@ -56,7 +68,7 @@ type-check:
 	uv run pyright src/
 
 # Pre-commit checks
-pre-commit: lint
+pre-commit: format lint-yaml
 	uv run pre-commit run --all-files
 
 # Commit with commitizen

@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <h2 style={{ fontSize: '3.5rem', fontWeight: '200' }}> Documented API in CurrencyLand</h2>
+        <h2 style={{ fontSize: '3.5rem', fontWeight: '200' }}> Transit API in PeopleLand</h2>
       </div>
       <div className="card">
         <button

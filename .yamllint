@@ -1,0 +1,23 @@
+extends: default
+
+ignore: |
+    .venv/
+    venv/
+    *.venv/*
+    node_modules/
+    .git/
+    .github/
+    __pycache__/
+    *.egg-info/
+    .pytest_cache/
+    .ruff_cache/
+    dist/
+    build/
+
+rules:
+    line-length:
+        max: 120
+    comments:
+        min-spaces-from-content: 1
+    indentation:
+        spaces: 2

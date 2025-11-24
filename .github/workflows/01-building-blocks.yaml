@@ -1,27 +1,26 @@
 name: 01 - Building Blocks
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+    workflow_dispatch:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
 
 jobs:
-  sample-job:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-    - name: Run script
-      run: |
-        echo "Bash CICD my project"
-        exit 0
-  sample-gone:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-    - name: Failed - Run script
-      run: |
-        echo "Want to say goodbye"
-        echo "Bye"
-        exit 1
+    sample-ok:
+        runs-on: ubuntu-latest
+        steps:
+        -   uses: actions/checkout@v6
+        -   name: Run script
+            run: |
+                echo "Bash CICD my project"
+    with-exit-code:
+        runs-on: ubuntu-latest
+        steps:
+        -   uses: actions/checkout@v6
+        -   name: Failed - Run script
+            run: |
+                echo "Want to say goodbye"
+                echo "Bye"
+                exit 0

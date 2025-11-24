@@ -6,7 +6,7 @@ on:
         branches: [main, develop]
     pull_request:
         branches: [main, develop]
-type: [created, edited, synchronize]
+# type: [created, edited, synchronize]
 
 jobs:
     sample-ok:

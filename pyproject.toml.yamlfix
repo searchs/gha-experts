@@ -1,0 +1,16 @@
+[tool.yamlfix]
+exclude = [
+    ".venv",
+    "venv",
+    ".git",
+    "__pycache__",
+    "*.egg-info",
+    ".pytest_cache",
+    ".ruff_cache",
+    "dist",
+    "build",
+    "node_modules",
+]
+line_length = 120
+indent_sequence = true
+preserve_quotes = true

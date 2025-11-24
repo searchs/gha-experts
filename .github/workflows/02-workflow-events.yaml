@@ -1,19 +1,18 @@
+---
 name: 02 - Workflow Events
-
 on:
-    workflow_dispatch:
+  workflow_dispatch:
     # push:
     #     branches: [main, develop]
-    pull_request:
-        branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
     # schedule:
     # -   cron: '*/10 * * * *'
-
 jobs:
-    sample-ok:
-        runs-on: ubuntu-latest
-        steps:
-        -   uses: actions/checkout@v6
-        -   name: Show The Trigger
-            run: |
-                echo "Triggered by a(n) ${{ github.event_name }} event"
+  sample-ok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Show The Trigger
+        run: |-
+          echo "Triggered by a(n) ${{ github.event_name }} event"
